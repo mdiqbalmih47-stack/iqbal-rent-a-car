@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#073b83">
+<title>Iqbal Rent a Car</title>
+<style>
+:root{--navy:#073b83;--blue:#1268d5;--green:#159451;--red:#d83d4b;--bg:#f3f7fd;--ink:#17243a;--muted:#66758b;--line:#dce6f2}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:system-ui,"Noto Sans Bengali",sans-serif;color:var(--ink)}
+header{background:linear-gradient(130deg,#062d6d,#1475e5);color:white;padding:20px 17px 22px;border-radius:0 0 24px 24px}
+.brand{font-size:23px;font-weight:850}.tag{font-size:12px;opacity:.9;margin-top:4px}
+.hero{margin:15px auto 0;max-width:680px;border-radius:18px;background:linear-gradient(120deg,#e4efff,#fff);height:112px;display:grid;place-items:center;font-size:66px}
+main{max-width:720px;margin:auto;padding:13px 13px 88px}.panel{background:white;border:1px solid var(--line);border-radius:17px;padding:15px;margin:11px 0;box-shadow:0 4px 15px #173b680a}
+h2{font-size:18px;color:var(--navy);margin:0 0 12px}h3{font-size:15px;margin:0 0 7px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.tile{background:white;border:1px solid var(--line);border-radius:14px;padding:13px;text-align:left;color:var(--ink);font:inherit;cursor:pointer}.tile .ico{font-size:25px;display:block}.tile b{display:block;margin-top:5px}.muted{font-size:12px;color:var(--muted)}
+button,.btn{border:0;border-radius:11px;padding:11px 14px;background:var(--blue);color:white;font:600 14px system-ui;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+button.green,.btn.green{background:var(--green)}button.red{background:var(--red)}button.light{background:#e8f1ff;color:var(--navy)}button.full{width:100%;margin-top:8px}
+label{display:block;font-size:13px;font-weight:650;margin:9px 0 5px;color:#43536a}
+input,select,textarea{width:100%;padding:11px;border:1px solid #cad8e9;border-radius:10px;font:inherit;background:white;color:var(--ink)}textarea{min-height:65px}
+.hidden{display:none!important}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.stat{padding:12px;border-radius:13px;background:#edf5ff}.stat.green{background:#e9f8ef}.stat.red{background:#fff0f1}.stat small{color:var(--muted)}.stat strong{display:block;font-size:19px;margin-top:4px}
+.tabs{display:flex;gap:6px;overflow:auto;padding:3px 0 9px}.tabs button{white-space:nowrap;background:#e8f1ff;color:var(--navy);font-size:12px;padding:9px}.tabs button.active{background:var(--navy);color:white}
+.line{padding:10px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px}.line:last-child{border:0}.amount{font-weight:750;white-space:nowrap}.positive{color:var(--green)}.negative{color:var(--red)}
+table{width:100%;border-collapse:collapse;font-size:13px}td,th{text-align:left;padding:9px 5px;border-bottom:1px solid var(--line)}th{color:var(--navy)}
+.notice{padding:10px;background:#fff7df;border:1px solid #f0dfa9;border-radius:11px;font-size:12px;color:#6b571c}
+footer{text-align:center;color:var(--muted);font-size:11px;padding:16px}
+</style></head>
+<body>
+<header><div class="brand">🚘 Iqbal Rent a Car</div><div class="tag">নিরাপদ ও নির্ভরযোগ্য গাড়ি ভাড়া সেবা</div><div class="hero">🚙</div></header>
+<main>
+<section id="home">
+ <div class="panel"><h2>স্বাগতম</h2><p class="muted">ঢাকা ও দেশের বিভিন্ন গন্তব্যে গাড়ি ভাড়ার জন্য যোগাযোগ করুন।</p>
+ <div class="grid">
+  <button class="tile" onclick="show('booking')"><span class="ico">🚘</span><b>গাড়ি বুকিং</b><span class="muted">যাত্রার তথ্য দিন</span></button>
+  <button class="tile" onclick="show('fares')"><span class="ico">🛣️</span><b>রুট ও ভাড়া</b><span class="muted">ভাড়ার তালিকা দেখুন</span></button>
+  <button class="tile" onclick="show('about')"><span class="ico">☎️</span><b>যোগাযোগ</b><span class="muted">ফোন ও WhatsApp</span></button>
+  <button class="tile" onclick="show('login')"><span class="ico">🔐</span><b>মালিকের হিসাব</b><span class="muted">ব্যক্তিগত ড্যাশবোর্ড</span></button>
+ </div></div>
+ <div class="panel"><h2>আমাদের সেবা</h2><div class="line">🚗 প্রাইভেট কার ভাড়া <span class="muted">ঢাকা ও বাইরে</span></div><div class="line">👨‍✈️ চালকসহ যাতায়াত</div><div class="line">🧳 পরিবার ও ব্যক্তিগত ভ্রমণ</div></div>
+</section>
+<section id="booking" class="hidden"><div class="panel"><h2>গাড়ি বুকিংয়ের অনুরোধ</h2><p class="muted">তথ্য পূরণ করে WhatsApp-এ পাঠান। বুকিং ফোনে নিশ্চিত হবে।</p>
+<form id="bookingForm">
+<label>আপনার নাম</label><input id="cname" required>
+<label>মোবাইল নম্বর</label><input id="cphone" required inputmode="tel">
+<label>যাত্রার তারিখ</label><input id="cdate" type="date" required>
+<label>কোথা থেকে যাবেন?</label><input id="from" required>
+<label>কোথায় যাবেন?</label><input id="to" required>
+<label>যাত্রী সংখ্যা</label><select id="passengers"><option>১-৩ জন</option><option>৪ জন</option><option>৫ জন</option><option>৬-৭ জন</option></select>
+<label>অতিরিক্ত তথ্য</label><textarea id="cnote"></textarea>
+<button class="green full" type="submit">WhatsApp-এ বুকিং পাঠান</button></form></div><button class="light" onclick="show('home')">← হোমে ফিরুন</button></section>
+<section id="fares" class="hidden"><div class="panel"><h2>রুট ও আনুমানিক ভাড়া</h2><p class="muted">ভাড়া পরিবর্তন হতে পারে; বুকিংয়ের আগে ফোনে নিশ্চিত করুন।</p><div id="fareList"></div></div><button class="light" onclick="show('home')">← হোমে ফিরুন</button></section>
+<section id="about" class="hidden"><div class="panel"><h2>Iqbal Rent a Car</h2><p>জিগাতলা, ঢাকা ১২০৯</p><p>📞 01736669682<br>WhatsApp: 01736669682</p><a class="btn green" href="https://wa.me/8801736669682">WhatsApp করুন</a> <a class="btn" href="tel:01736669682">ফোন করুন</a></div><button class="light" onclick="show('home')">← হোমে ফিরুন</button></section>
+<section id="login" class="hidden"><div class="panel"><h2>🔐 মালিকের লগইন</h2><p class="muted" id="pinHint">প্রথমবার ৪-৮ সংখ্যার PIN তৈরি করুন। এরপর সেই PIN দিয়ে ঢুকবেন।</p><label>PIN</label><input id="pin" type="password" inputmode="numeric" maxlength="8"><button class="full" onclick="login()">প্রবেশ করুন</button></div><button class="light" onclick="show('home')">← হোমে ফিরুন</button></section>
+<section id="owner" class="hidden">
+<div class="tabs"><button class="active" onclick="tab('summary',this)">সারাংশ</button><button onclick="tab('add',this)">নতুন হিসাব</button><button onclick="tab('daily',this)">দৈনিক লাভ</button><button onclick="tab('monthly',this)">মাসিক রিপোর্ট</button><button onclick="tab('target',this)">আয়ের টার্গেট</button><button onclick="tab('records',this)">হিসাব তালিকা</button><button onclick="tab('backup',this)">ব্যাকআপ</button></div>
+<div id="summary" class="ownerpage"><div class="panel"><h2>আজকের হিসাব</h2><div class="stats"><div class="stat"><small>আয়</small><strong id="ti">৳০</strong></div><div class="stat red"><small>সাধারণ খরচ</small><strong id="te">৳০</strong></div><div class="stat red"><small>রুট খরচ</small><strong id="tr">৳০</strong></div><div class="stat green"><small>আজকের লাভ</small><strong id="tp">৳০</strong></div></div></div><div class="panel"><h2>সর্বমোট হিসাব</h2><div class="stats"><div class="stat"><small>মোট আয়</small><strong id="ai">৳০</strong></div><div class="stat red"><small>মোট খরচ</small><strong id="ae">৳০</strong></div><div class="stat green"><small>নিট লাভ</small><strong id="ap">৳০</strong></div></div></div></div>
+<div id="add" class="ownerpage hidden"><div class="panel"><h2>নতুন হিসাব যোগ করুন</h2><label>তারিখ</label><input id="edate" type="date"><label>হিসাবের ধরন</label><select id="etype"><option value="income">আয়</option><option value="expense">সাধারণ খরচ</option><option value="route">রুট খরচ (আলাদা)</option></select><label>বিবরণ</label><input id="edesc" placeholder="যেমন: ঢাকা টু শরীয়তপুর"><label>টাকার পরিমাণ</label><input id="eamount" type="number" min="1" inputmode="numeric"><label>নোট (ঐচ্ছিক)</label><textarea id="enote"></textarea><button class="green full" onclick="addEntry()">হিসাব সংরক্ষণ করুন</button></div></div>
+<div id="daily" class="ownerpage hidden"><div class="panel"><h2>প্রতিদিনের লাভের শিট</h2><label>তারিখ নির্বাচন</label><input id="dailyDate" type="date" onchange="dailyReport()"><div id="dailyOut"></div></div></div>
+<div id="monthly" class="ownerpage hidden"><div class="panel"><h2>মাসিক রিপোর্ট</h2><label>মাস নির্বাচন</label><input id="month" type="month" onchange="monthlyReport()"><div id="monthOut"></div></div></div>
+<div id="target" class="ownerpage hidden"><div class="panel"><h2>প্রতিদিনের আয়ের টার্গেট</h2><p class="muted">সাপ্তাহিক লক্ষ্য: রবি–বৃহস্পতি ২,০০০ টাকা, শুক্র ৪,০০০ টাকা, শনি ৫,০০০ টাকা।</p><label>তারিখ</label><input id="targetDate" type="date" onchange="targetReport()"><div id="targetOut"></div></div></div>
+<div id="records" class="ownerpage hidden"><div class="panel"><h2>হিসাব তালিকা</h2><label>তারিখ দিয়ে ফিল্টার</label><input id="filterDate" type="date" onchange="renderRecords()"><div id="recordList"></div></div></div>
+<div id="backup" class="ownerpage hidden"><div class="panel"><h2>ব্যাকআপ ও রিস্টোর</h2><button class="full" onclick="backup()">ব্যাকআপ ডাউনলোড</button><label>ব্যাকআপ ফাইল ফিরিয়ে আনুন</label><input id="restoreFile" type="file" accept="application/json"><button class="dark full" onclick="restore()">রিস্টোর করুন</button><p class="muted">ফোন বদলালে ব্যাকআপ ফাইল ব্যবহার করুন।</p><button class="light full" onclick="logout()">লগআউট</button></div></div>
+</section>
+<footer>Iqbal Rent a Car · আপনার যাত্রা, আমাদের দায়িত্ব</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id), today=()=>new Date().toISOString().slice(0,10), KEY='iqbalRentCarFinalV1';
+let db=JSON.parse(localStorage.getItem(KEY)||'{"entries":[]}');
+const fares=[['ঢাকা–শরীয়তপুর',7000],['ঢাকা–মাদারীপুর',6500],['ঢাকা–ফরিদপুর',7000],['ঢাকা–ময়মনসিংহ',4000],['ঢাকা–গাজীপুর',3000],['ঢাকা–নোয়াখালী',5000],['ঢাকা–ফেনী',5000],['ঢাকা–কুমিল্লা',3500],['ঢাকা–জামালপুর',8000],['ঢাকা–সিলেট',9000],['ঢাকা–চট্টগ্রাম',9000],['ঢাকা–যশোর',14000],['ঢাকা–মানিকগঞ্জ',3000],['ঢাকা–মুন্সিগঞ্জ',3000],['ঢাকা–নরসিংদী',3000],['ঢাকা–দোহার',3000],['ঢাকা–গোপালগঞ্জ',7000]];
+function save(){localStorage.setItem(KEY,JSON.stringify(db))}
+function money(n){return '৳'+Number(n||0).toLocaleString('bn-BD')}
+function show(id){['home','booking','fares','about','login','owner'].forEach(x=>$(x).classList.toggle('hidden',x!==id));if(id==='owner')refresh()}
+function tab(id,b){document.querySelectorAll('.ownerpage').forEach(x=>x.classList.add('hidden'));$(id).classList.remove('hidden');document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(id==='summary')refresh();if(id==='records')renderRecords();if(id==='daily')dailyReport();if(id==='monthly')monthlyReport();if(id==='target')targetReport()}
+function login(){let p=$('pin').value;if(!/^\d{4,8}$/.test(p)){alert('৪-৮ সংখ্যার PIN দিন');return}let old=localStorage.getItem('iqbalRentCarPin');if(!old){localStorage.setItem('iqbalRentCarPin',p);$('pin').value='';$('pinHint').textContent='PIN তৈরি হয়েছে। আবার PIN দিয়ে প্রবেশ করুন।';alert('PIN তৈরি হয়েছে। আবার PIN দিয়ে প্রবেশ করুন।');return}if(old!==p){alert('PIN সঠিক নয়');return}$('pin').value='';show('owner')}
+function logout(){show('home')}
+function addEntry(){let a=Number($('eamount').value),d=$('edesc').value.trim();if(!d||a<=0){alert('বিবরণ ও সঠিক টাকার পরিমাণ দিন');return}db.entries.unshift({id:Date.now(),date:$('edate').value||today(),type:$('etype').value,desc:d,amount:a,note:$('enote').value});save();$('edesc').value='';$('eamount').value='';$('enote').value='';alert('হিসাব সংরক্ষণ হয়েছে');tab('summary',document.querySelector('.tabs button'))}
+function sums(a){return a.reduce((s,x)=>{if(x.type==='income')s.i+=x.amount;else if(x.type==='route')s.r+=x.amount;else s.e+=x.amount;return s},{i:0,e:0,r:0})}
+function refresh(){let t=sums(db.entries.filter(x=>x.date===today())),a=sums(db.entries);$('ti').textContent=money(t.i);$('te').textContent=money(t.e);$('tr').textContent=money(t.r);$('tp').textContent=money(t.i-t.e-t.r);$('ai').textContent=money(a.i);$('ae').textContent=money(a.e+a.r);$('ap').textContent=money(a.i-a.e-a.r)}
+function report(items){let s=sums(items);return `<div class="line"><span>মোট আয়</span><b class="positive">${money(s.i)}</b></div><div class="line"><span>সাধারণ খরচ</span><b>${money(s.e)}</b></div><div class="line"><span>রুট খরচ</span><b>${money(s.r)}</b></div><div class="line"><b>নিট লাভ</b><b class="${s.i-s.e-s.r>=0?'positive':'negative'}">${money(s.i-s.e-s.r)}</b></div>`}
+function dailyReport(){let d=$('dailyDate').value||today();$('dailyOut').innerHTML=report(db.entries.filter(x=>x.date===d))}
+function monthlyReport(){let m=$('month').value||today().slice(0,7);$('monthOut').innerHTML=report(db.entries.filter(x=>x.date.startsWith(m)))}
+function targetReport(){let d=$('targetDate').value||today(),day=new Date(d+'T12:00:00').getDay(),goal=day===5?4000:day===6?5000:2000,got=sums(db.entries.filter(x=>x.date===d)).i,percent=Math.min(100,Math.round(got/goal*100));$('targetOut').innerHTML=`<div class="line"><span>আজকের লক্ষ্য</span><b>${money(goal)}</b></div><div class="line"><span>আজকের আয়</span><b>${money(got)}</b></div><div class="line"><span>লক্ষ্যের বাকি</span><b>${money(Math.max(0,goal-got))}</b></div><div style="height:12px;background:#e7edf5;border-radius:20px;overflow:hidden;margin:12px 0"><div style="height:100%;width:${percent}%;background:#159451"></div></div><b>${percent}% সম্পন্ন</b>`}
+function renderRecords(){let f=$('filterDate').value,a=db.entries.filter(x=>!f||x.date===f);$('recordList').innerHTML=a.length?a.map(x=>`<div class="line"><div><b>${esc(x.desc)}</b><div class="muted">${x.date} · ${x.type==='income'?'আয়':x.type==='route'?'রুট খরচ':'সাধারণ খরচ'}</div></div><div style="text-align:right"><b>${money(x.amount)}</b><br><button class="red" style="padding:5px 8px;font-size:11px;margin-top:4px" onclick="del(${x.id})">মুছুন</button></div></div>`).join(''):'<p class="muted">কোনো হিসাব নেই।</p>'}
+function del(id){if(confirm('এই হিসাব মুছবেন?')){db.entries=db.entries.filter(x=>x.id!==id);save();renderRecords();refresh()}}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function backup(){let blob=new Blob([JSON.stringify(db,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='iqbal-rent-a-car-backup.json';a.click();URL.revokeObjectURL(a.href)}
+function restore(){let f=$('restoreFile').files[0];if(!f){alert('ব্যাকআপ ফাইল নির্বাচন করুন');return}let r=new FileReader();r.onload=()=>{try{let v=JSON.parse(r.result);if(!Array.isArray(v.entries))throw 0;if(confirm('বর্তমান হিসাব বদলে ব্যাকআপ বসবে। চালাবেন?')){db=v;save();refresh();renderRecords();alert('ব্যাকআপ ফিরেছে')}}catch(e){alert('সঠিক ব্যাকআপ ফাইল নয়')}};r.readAsText(f)}
+$('bookingForm').addEventListener('submit',e=>{e.preventDefault();let msg=`Iqbal Rent a Car বুকিং অনুরোধ%0Aনাম: ${$('cname').value}%0Aফোন: ${$('cphone').value}%0Aতারিখ: ${$('cdate').value}%0Aযাত্রা শুরু: ${$('from').value}%0Aগন্তব্য: ${$('to').value}%0Aযাত্রী: ${$('passengers').value}%0Aনোট: ${$('cnote').value}`;window.open('https://wa.me/8801736669682?text='+msg,'_blank')});
+$('fareList').innerHTML=fares.map(x=>`<div class="line"><span>${x[0]}</span><b>${money(x[1])}</b></div>`).join('');
+$('edate').value=today();$('dailyDate').value=today();$('targetDate').value=today();$('month').value=today().slice(0,7);$('cdate').min=today();$('pinHint').textContent=localStorage.getItem('iqbalRentCarPin')?'আপনার PIN দিয়ে প্রবেশ করুন।':'প্রথমবার ৪-৮ সংখ্যার PIN তৈরি করুন।';
+</script></body></html>
